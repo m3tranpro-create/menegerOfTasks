@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Доска для работ</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <form class="board-form" id="boardForm">
+        
+        <div class="board-do" id="boardDoDo">
+            <h2 class="text-do">Надо сделать</h2>
+                <input id="taskInput1" class="task-input" type="text" placeholder="Введите задачу">
+                    <ul id="todoList" class="task-list"></ul>
+            <button id="btnDo1" class="btn-do">добавить</button>
+            <button id="btnDel1" class="btn-do-del">Удалить</button>
+        </div>
+        
+        <div class="board-do" id="boardDoProcess">
+            <h2 class="text-do">В работе</h2>
+                <input id="taskInput2" class="task-input" type="text" placeholder="Введите задачу">
+                    <ul id="processList" class="task-list"></ul>
+            <button id="btnDo2" class="btn-do">добавить</button>
+            <button id="btnDel2" class="btn-do-del">Удалить</button>
+        </div>
+        
+        <div class="board-do" id="boardDoDone">
+            <h2 class="text-do">Готово</h2>
+                <input id="taskInput3" class="task-input" type="text" placeholder="Введите задачу">
+                    <ul id="doneList" class="task-list"></ul>
+            <button id="btnDo3" class="btn-do">добавить</button>
+            <button id="btnDel3" class="btn-do-del">Удалить</button>
+        </div>
+        <button id="btnClearAll" class="btn-do">Удалить всё</button>
+    
+    </form>
+        <script src="js.js">     
+        </script>
+    </body>
+</html>

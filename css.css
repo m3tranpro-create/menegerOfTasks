@@ -1,0 +1,182 @@
+/* Общий сброс и база */
+    * {
+        box-sizing: border-box; /* Важно: padding/border не увеличивают ширину */
+    }
+
+    body {
+        margin: 0;                      /* Убираем отступы браузера */
+        font-family: Arial, sans-serif; /* Базовый шрифт */
+        font-size: 16px;                /* Читабельный размер */
+        line-height: 1.5;               /* Межстрочный интервал */
+        color: #333;                    /* Цвет текста (не чисто черный) */
+        background-color: #fff;         /* Белый фон по умолчанию */
+        min-height: 100vh;              /* Для flex-контейнера, если надо */
+        -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов */
+    }
+
+    /* Контейнер с тремя колонками */
+    .board-form {
+        display: flex;
+        gap: 20px;
+        justify-content: center; /* Центр по горизонтали */
+        align-items: flex-start; /* Выравнивание сверху (не растягивать по высоте) */
+        background-color: #fff;  /* (оставлено, но можно убрать — фон и так белый) */
+        padding: 20px;           /* Добавлено: воздух по краям */
+    }
+
+    /* Карточка-колонка */
+    .board-do {
+        background-color: #333;
+        width: 100%;   
+        min-height: 300px;       /* вместо 100vh, иначе три огромные колонки */
+        border-radius: 16px;     /* добавил лёгкое закругление самой колонке */
+        padding: 16px;           /* внутренние отступы */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Заголовок в колонке */
+    .text-do {
+        color: white;
+        text-align: center;
+        margin-top: 0;           /* убираем лишний отступ сверху */
+        margin-bottom: 16px;
+    }
+
+    /* Поле ввода */
+    .task-input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        transition: 0.3s;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .task-input:focus {
+        border: 1px solid #000000;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Кнопка (была объявлена в HTML, но без стилей) */
+    .btn-do {
+        background-color: #555;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 8px;
+    }
+
+    .btn-do:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    .btn-do:enabled:hover {
+        background-color: #222;
+    }
+    .btn-do-del {
+        background-color: #513e3e;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 8px;
+    }
+
+    .btn-do-del:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    .btn-do-del:enabled:hover {
+        background-color: #3b2e2e;
+    }
+    .task-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        list-style-type: decimal;
+        list-style-position: inside;
+        padding-left: 0;  /* Убирает левый внутренний отступ */
+        margin-left: 0;
+        margin-bottom: 12px;
+        min-height: 50px; 
+    }
+
+    .task-item {
+        width: 100%;
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 10px 10px;
+        font-size: 14px;
+        word-break: break-word;
+        border: 2px solid black;
+    }
+    .del-btn-list {
+        background-color: #f0f0f0;
+        margin-left: 100px;
+        width: 20px;
+        height: 20px;
+        border: none;
+    }
+
+    .del-btn-list {
+        background: none;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 0 4px;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+        flex-shrink: 0; /* Чтобы кнопка не сжималась */
+    }
+
+    .del-btn-list:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    /* Чтобы кнопка не мешала перетаскиванию */
+    .del-btn-list:active {
+        cursor: pointer; /* Не меняем на grabbing */
+    }
+    .edit-input {
+        flex: 1;
+        padding: 5px;
+        margin-right: 8px;
+        border: 2px solid #4CAF50;
+        border-radius: 4px;
+        font-size: 14px;
+        outline: none;
+        background: white;
+    }
+
+    .edit-input:focus {
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    }
+
+    .task-text {
+        flex: 1;
+        margin-right: 8px;
+        cursor: text;
+        padding: 5px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+    }
+
+    .task-text:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
